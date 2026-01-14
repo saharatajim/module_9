@@ -65,6 +65,7 @@ main > section{
 }
 .nav-link{
     text-decoration: none;
+    font-weight: 500;
 }
 
 .navbar,.banner{
@@ -93,11 +94,12 @@ main > section{
 
  .team-img-container{
     display: grid;
-        grid-template-columns: repeat(2,342px);
+    grid-template-columns: repeat(2,1fr);
     gap:24px ;}
 
 .our-features{
     margin-left: 130px;
+    max-width: 530px;
 }
 
 
@@ -108,36 +110,109 @@ main > section{
     font-size: 1rem;
     line-height: 26px;
 }
+/* some fact related styles */
+.facts-container{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(1,1fr);
+    /* gap: 125px; */
+    margin-top: 100px;
+}
+.fact-card{
+    border:1px solid #FF900E ;
+    width: 240px;
+    height: 240px;
+    border-radius: 8px;
+    display: flex;
+    text-align: center; 
+    justify-content: center;
+    align-items: center;
+    /* >must there will be display flex,otherwise that won't work  */ 
+   
+    
+}
+.fact-number{
+    font-size: 2.8rem;
+    font-weight: 600;
+    margin-top:5px ;
+    margin-bottom: 10px;
+}
+.fact-name{
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-top: 10px;
+    color: #727272;
+
+}
+.fact-description{
+    max-width: 540px;
+    line-height: 26px;
+}
+/* our sponsor section */
+
+.sponsor-info{
+    max-width: 540px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.sponsor-companies{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.sponsor-companies img{
+    filter: grayscale(100%);
+}
+
+
 /*Responsive media query  */
-@media screen and (max-width:576px) {
 
 
-    .navbar,.nav_links,.teams{
+ @media screen and (max-width: 576px) {
+ 
+    .navbar,
+    .nav_links,
+    .teams{
         flex-direction:column;
-
-
     }
+
     .nav-item{
         font-size: 2rem;
     }
-    .team-img-container{
-        grid-template-columns: repeat(1,1fr);
+    .team-img-container, 
+    .facts-container, 
+    .sponsor-companies{
+        grid-template-columns: 1fr;
     }
     .our-features{
         margin-left: 20px;
     }
+    .facts-container{
+    justify-items: center;
+    /* i used 1st time */
+    gap: 24px;
    
-}
+    }
+    .sponsor-companies{
+        justify-items: center;
+        gap: 50px;
+    }
+    
+ }
 
 /* medium size device */
 @media screen and (min-width:576px) and (max-width:992px){
     .teams{
         flex-direction:column;
-
-
     }
     .our-features{
         margin: 50px auto;
+    }
+    .sponsor-companies, .facts-container{
+        grid-template-columns: repeat(2,1fr);
+        gap: 50px;
+        justify-items: center;
     }
 
 
